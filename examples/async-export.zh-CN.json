@@ -1,0 +1,19 @@
+{
+  "title": "这次改动：报表导出改成后台任务",
+  "lang": "zh-CN",
+  "viewer_line": "看完之后，团队里没读过代码的同事能说清：导出为什么不再卡住页面、他们要改什么、哪里要留意。",
+  "target_seconds": 45,
+  "format": "16:9",
+  "spine": "before-change-after",
+  "palette": {"bg": "#14161c", "ink": "#eef0f3", "accent": "#5ad1a4", "muted": "#7f8796"},
+  "beats": [
+    {"id": "b01", "part": "before", "vo": "以前点一下导出，页面就转圈，大报表要等将近一分钟。", "screen": "导出 = 卡 55 秒", "picture": "浏览器窗口，按钮按下后一个转圈图标，右上角计时器从 0 跳到 55", "kind": "ui", "motion": "rise", "seam": "转圈图标被带入下一拍"},
+    {"id": "b02", "part": "before", "vo": "原因是请求一直在等文件生成完，超过六十秒还会直接失败。", "screen": "60 秒超时", "picture": "请求与服务器之间一根线越拉越长，到 60 秒处断开变红", "kind": "diagram", "motion": "build", "seam": "在“失败”上硬切", "hold": 0.4},
+    {"id": "b03", "part": "change", "vo": "现在点导出，服务器马上回一句：收到了，然后在后台慢慢做。", "screen": "先回复，后干活", "picture": "请求线一来一回只用一瞬间；一个“任务卡片”落进后台队列", "kind": "diagram", "motion": "build", "seam": "任务卡片向右移动，带入下一拍",
+     "art": "<svg viewBox='0 0 420 160' xmlns='http://www.w3.org/2000/svg'><g font-family='sans-serif' font-size='16' fill='#eef0f3'><rect x='10' y='55' width='90' height='50' rx='8' fill='none' stroke='#eef0f3' stroke-width='3'/><text x='30' y='86'>页面</text><rect x='160' y='55' width='100' height='50' rx='8' fill='none' stroke='#eef0f3' stroke-width='3'/><text x='180' y='86'>服务器</text><rect x='320' y='55' width='90' height='50' rx='8' fill='#5ad1a4'/><text x='338' y='86' fill='#14161c'>后台队列</text><path d='M100 70 H160' stroke='#5ad1a4' stroke-width='3'/><path d='M160 92 H100' stroke='#5ad1a4' stroke-width='3' stroke-dasharray='6 5'/><path d='M260 80 H320' stroke='#5ad1a4' stroke-width='3'/></g></svg>"},
+    {"id": "b04", "part": "change", "vo": "文件做好后，页面右上角会弹出下载提醒。", "screen": "做好了 → 提醒", "picture": "铃铛图标亮起，弹出一个带下载按钮的小卡片", "kind": "ui", "motion": "slide", "seam": "硬切"},
+    {"id": "b05", "part": "after", "vo": "页面不再卡住，超大报表也不会超时。", "screen": "0 秒等待 · 0 次超时", "picture": "两个数字从旧值滚动到 0", "kind": "number", "motion": "zoom", "seam": "停顿后切", "hold": 0.6},
+    {"id": "b06", "part": "after", "vo": "要留意一件事：调用旧接口的脚本，需要改成先拿任务编号，再查结果。", "screen": "旧脚本要改", "picture": "一段旧脚本被黄色描边框出，旁边标注“先拿编号，再查结果”", "kind": "ui", "motion": "swap", "seam": "硬切"},
+    {"id": "b07", "part": "next", "vo": "迁移说明在合并请求的第二节，五分钟能改完。", "screen": "见说明第二节", "picture": "文档目录，第二节高亮", "kind": "type", "motion": "hold", "seam": "end", "hold": 1.5}
+  ]
+}

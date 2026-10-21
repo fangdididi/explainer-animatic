@@ -1,0 +1,131 @@
+{
+  "title": "Start early or save more?",
+  "lang": "en",
+  "viewer_line": "After watching, a first-year employee can explain why ten years of saving from 25 can beat thirty years of saving from 35, and knows the one setting to change today.",
+  "target_seconds": 60,
+  "format": "16:9",
+  "spine": "snag-mechanism-proof-payoff-next",
+  "palette": {
+    "bg": "#0f1720",
+    "ink": "#f3efe6",
+    "accent": "#f5b041",
+    "muted": "#7b8a99"
+  },
+  "beats": [
+    {
+      "id": "b01",
+      "part": "snag",
+      "vo": "Two friends. Same job, same salary.",
+      "screen": "Mia  ·  Leo",
+      "picture": "Two simple figures side by side, identical name cards",
+      "kind": "type",
+      "motion": "rise",
+      "seam": "carry: both cards slide left"
+    },
+    {
+      "id": "b02",
+      "part": "snag",
+      "vo": "Mia saves two hundred a month from twenty-five, then stops at thirty-five.",
+      "screen": "Mia: 25 → 35",
+      "picture": "Mia's card grows a short bar labelled 10 years",
+      "kind": "diagram",
+      "motion": "build",
+      "seam": "cut on 'stops'"
+    },
+    {
+      "id": "b03",
+      "part": "snag",
+      "vo": "Leo waits, then saves the same two hundred a month from thirty-five to sixty-five.",
+      "screen": "Leo: 35 → 65",
+      "picture": "Leo's card grows a bar three times longer, labelled 30 years",
+      "kind": "diagram",
+      "motion": "build",
+      "seam": "cut"
+    },
+    {
+      "id": "b04",
+      "part": "snag",
+      "vo": "Leo puts in three times more money. So who ends up with more?",
+      "screen": "$24k  vs  $72k",
+      "picture": "Two coin stacks, Leo's towering; a question mark lands between them",
+      "kind": "number",
+      "motion": "zoom",
+      "seam": "hold, then cut on 'more'",
+      "hold": 0.6
+    },
+    {
+      "id": "b05",
+      "part": "mechanism",
+      "vo": "Growth is paid on the money you already have, including last year's growth.",
+      "screen": "growth on *growth*",
+      "picture": "A small square splits into a slightly bigger square, which splits again",
+      "kind": "metaphor",
+      "motion": "build",
+      "seam": "carry: the squares become a curve"
+    },
+    {
+      "id": "b06",
+      "part": "mechanism",
+      "vo": "At seven percent a year, money roughly doubles every ten years.",
+      "screen": "7% ≈ ×2 / 10 yrs",
+      "picture": "A curve with three marked doubling steps",
+      "kind": "diagram",
+      "motion": "build",
+      "seam": "cut",
+      "art": "<svg viewBox='0 0 400 220' xmlns='http://www.w3.org/2000/svg'><path d='M20 200 C150 195 260 160 380 30' fill='none' stroke='#f5b041' stroke-width='6'/><g fill='#f3efe6' font-size='16' font-family='sans-serif'><circle cx='140' cy='190' r='6'/><text x='122' y='176'>×2</text><circle cx='260' cy='150' r='6'/><text x='242' y='136'>×4</text><circle cx='360' cy='60' r='6'/><text x='334' y='48'>×8</text></g></svg>"
+    },
+    {
+      "id": "b07",
+      "part": "mechanism",
+      "vo": "Mia's dollars get about twenty more years to grow. That is two extra doublings.",
+      "screen": "+2 doublings",
+      "picture": "Mia's small stack doubles twice more on a timeline while Leo's is still being filled",
+      "kind": "diagram",
+      "motion": "build",
+      "seam": "cut on 'doublings'"
+    },
+    {
+      "id": "b08",
+      "part": "proof",
+      "vo": "At sixty-five, assuming seven percent a year, Mia has about two hundred and eighty thousand.",
+      "screen": "Mia ≈ $281k",
+      "picture": "Mia's stack rises past the line where Leo's will stop",
+      "kind": "number",
+      "motion": "swap",
+      "seam": "carry: Leo's stack rises next to it",
+      "hold": 0
+    },
+    {
+      "id": "b08b",
+      "part": "proof",
+      "vo": "Leo, with three times the deposits, has about two hundred and forty-four thousand.",
+      "screen": "Leo ≈ $244k",
+      "picture": "Leo's stack stops just short of Mia's",
+      "kind": "number",
+      "motion": "swap",
+      "seam": "hold",
+      "hold": 0.7
+    },
+    {
+      "id": "b09",
+      "part": "payoff",
+      "vo": "The years did more work than the extra deposits.",
+      "screen": "*Time* beat money",
+      "picture": "Bold line of type, alone on screen",
+      "kind": "type",
+      "motion": "zoom",
+      "seam": "cut"
+    },
+    {
+      "id": "b10",
+      "part": "next",
+      "vo": "So today, switch on automatic saving, even if it is small.",
+      "screen": "Turn on auto-save today",
+      "picture": "A toggle in a banking app slides to ON",
+      "kind": "ui",
+      "motion": "slide",
+      "seam": "end",
+      "hold": 1.5
+    }
+  ]
+}

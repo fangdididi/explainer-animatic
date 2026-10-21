@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>这次改动：报表导出改成后台任务 - animatic</title>
+<style>:root{--bg:#14161c;--ink:#eef0f3;--accent:#5ad1a4;--muted:#7f8796;--ar:1.7778;--arc:16/9}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#000;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+#wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%;gap:12px;padding:12px}
+#stage{container-type:inline-size;position:relative;width:min(96vw,calc((100vh - 190px)*var(--ar)));aspect-ratio:var(--arc);background:var(--bg);overflow:hidden;border-radius:6px}
+.beat{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;padding:6%;text-align:center}
+.beat.on{display:flex}
+.screen{font-size:clamp(20px,6.2cqw,96px);font-weight:800;line-height:1.1;letter-spacing:-.01em}
+.screen em{font-style:normal;color:var(--accent)}
+.pic{margin-top:3cqw;font-size:clamp(11px,1.7cqw,22px);color:var(--muted);max-width:80%;border:1px dashed var(--muted);padding:.6em 1em;border-radius:6px}
+.kind{position:absolute;top:3%;left:3%;font-size:clamp(9px,1.2cqw,14px);color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+.art{width:100%;display:flex;align-items:center;justify-content:center}
+.art svg{max-width:100%;max-height:34cqw}
+#sub{position:absolute;left:5%;right:5%;bottom:4%;font-size:clamp(11px,2cqw,26px);line-height:1.35;color:var(--ink);background:rgba(0,0,0,.55);padding:.3em .6em;border-radius:4px;display:none}
+#sub.show{display:block}
+#bar{position:absolute;left:0;bottom:0;height:4px;background:var(--accent);width:0}
+.m-rise.go>*{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+.m-slide.go>*{animation:slide .6s cubic-bezier(.2,.8,.2,1) both}
+.m-zoom.go>*{animation:zoom .8s cubic-bezier(.2,.8,.2,1) both}
+.m-swap.go>*{animation:swap .5s ease-out both}
+.m-build.go>*{animation:rise .6s cubic-bezier(.2,.8,.2,1) both}
+.m-build.go>*:nth-child(2){animation-delay:.35s}.m-build.go>*:nth-child(3){animation-delay:.7s}.m-build.go>*:nth-child(4){animation-delay:1.05s}
+@keyframes rise{from{opacity:0;transform:translateY(4cqw)}to{opacity:1;transform:none}}
+@keyframes slide{from{opacity:0;transform:translateX(12cqw)}to{opacity:1;transform:none}}
+@keyframes zoom{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
+@keyframes swap{from{opacity:0;filter:blur(8px)}to{opacity:1;filter:none}}
+#ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center;color:#ccc;font-size:14px}
+#ctl button{background:#222;color:#eee;border:1px solid #444;border-radius:4px;padding:6px 12px;cursor:pointer;font:inherit}
+#ctl label{display:flex;gap:4px;align-items:center}
+#strip{display:flex;gap:3px;width:min(96vw,1200px)}
+#strip div{flex:var(--d);height:22px;background:#2a2f36;border-radius:2px;cursor:pointer;font-size:10px;color:#9aa;display:flex;align-items:center;justify-content:center;overflow:hidden;white-space:nowrap}
+#strip div.on{background:var(--accent);color:#000}
+#time{font-variant-numeric:tabular-nums;min-width:110px;text-align:center}
+</style></head>
+<body><div id="wrap">
+<div id="stage"><section class="beat m-rise"><span class="kind">b01 · before</span><div class="screen">导出 = 卡 55 秒</div><div class="pic">浏览器窗口，按钮按下后一个转圈图标，右上角计时器从 0 跳到 55</div></section>
+<section class="beat m-build"><span class="kind">b02 · before</span><div class="screen">60 秒超时</div><div class="pic">请求与服务器之间一根线越拉越长，到 60 秒处断开变红</div></section>
+<section class="beat m-build"><span class="kind">b03 · change</span><div class="art"><svg viewBox='0 0 420 160' xmlns='http://www.w3.org/2000/svg'><g font-family='sans-serif' font-size='16' fill='#eef0f3'><rect x='10' y='55' width='90' height='50' rx='8' fill='none' stroke='#eef0f3' stroke-width='3'/><text x='30' y='86'>页面</text><rect x='160' y='55' width='100' height='50' rx='8' fill='none' stroke='#eef0f3' stroke-width='3'/><text x='180' y='86'>服务器</text><rect x='320' y='55' width='90' height='50' rx='8' fill='#5ad1a4'/><text x='338' y='86' fill='#14161c'>后台队列</text><path d='M100 70 H160' stroke='#5ad1a4' stroke-width='3'/><path d='M160 92 H100' stroke='#5ad1a4' stroke-width='3' stroke-dasharray='6 5'/><path d='M260 80 H320' stroke='#5ad1a4' stroke-width='3'/></g></svg></div><div class="screen">先回复，后干活</div></section>
+<section class="beat m-slide"><span class="kind">b04 · change</span><div class="screen">做好了 → 提醒</div><div class="pic">铃铛图标亮起，弹出一个带下载按钮的小卡片</div></section>
+<section class="beat m-zoom"><span class="kind">b05 · after</span><div class="screen">0 秒等待 · 0 次超时</div><div class="pic">两个数字从旧值滚动到 0</div></section>
+<section class="beat m-swap"><span class="kind">b06 · after</span><div class="screen">旧脚本要改</div><div class="pic">一段旧脚本被黄色描边框出，旁边标注“先拿编号，再查结果”</div></section>
+<section class="beat m-hold"><span class="kind">b07 · next</span><div class="screen">见说明第二节</div><div class="pic">文档目录，第二节高亮</div></section><div id="sub"></div><div id="bar"></div></div>
+<div id="strip"><div style="--d:5.6" title="b01 0:00.0">b01</div><div style="--d:6.8" title="b02 0:05.6">b02</div><div style="--d:6.1" title="b03 0:12.4">b03</div><div style="--d:4.4" title="b04 0:18.5">b04</div><div style="--d:4.6" title="b05 0:22.9">b05</div><div style="--d:7.1" title="b06 0:27.5">b06</div><div style="--d:6.4" title="b07 0:34.6">b07</div></div>
+<div id="ctl"><button id="prev">◀</button><button id="play">▶ Play</button><button id="next">▶|</button>
+<span id="time"></span><label><input type="checkbox" id="subs" checked> 字幕</label>
+<label><input type="checkbox" id="voice"> 草稿配音</label></div>
+</div>
+<script>window.BEATS=[{"id": "b01", "dur": 5.6, "vo": "以前点一下导出，页面就转圈，大报表要等将近一分钟。"}, {"id": "b02", "dur": 6.8, "vo": "原因是请求一直在等文件生成完，超过六十秒还会直接失败。"}, {"id": "b03", "dur": 6.1, "vo": "现在点导出，服务器马上回一句：收到了，然后在后台慢慢做。"}, {"id": "b04", "dur": 4.4, "vo": "文件做好后，页面右上角会弹出下载提醒。"}, {"id": "b05", "dur": 4.6, "vo": "页面不再卡住，超大报表也不会超时。"}, {"id": "b06", "dur": 7.1, "vo": "要留意一件事：调用旧接口的脚本，需要改成先拿任务编号，再查结果。"}, {"id": "b07", "dur": 6.4, "vo": "迁移说明在合并请求的第二节，五分钟能改完。"}];window.LANG="zh-CN";window.RATE=1.00;
+const B=window.BEATS, total=B.reduce((s,b)=>s+b.dur,0);
+let t=0, playing=false, last=null, cur=-1, voice=false;
+const st=document.getElementById('stage'), sub=document.getElementById('sub'), bar=document.getElementById('bar');
+const els=[...document.querySelectorAll('.beat')], strip=[...document.querySelectorAll('#strip div')];
+function fmt(s){const m=Math.floor(s/60);return m+':'+(s%60).toFixed(1).padStart(4,'0')}
+function idx(at){let a=0;for(let i=0;i<B.length;i++){a+=B[i].dur;if(at<a)return i}return B.length-1}
+function show(i){if(i===cur)return;cur=i;els.forEach((e,k)=>{e.classList.toggle('on',k===i);e.classList.remove('go')});
+ strip.forEach((e,k)=>e.classList.toggle('on',k===i));void els[i].offsetWidth;els[i].classList.add('go');
+ sub.textContent=B[i].vo||'';if(voice&&playing)speak(B[i].vo)}
+function speak(txt){if(!('speechSynthesis' in window)||!txt)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt);u.lang=window.LANG==='zh-CN'?'zh-CN':'en-US';u.rate=window.RATE;speechSynthesis.speak(u)}
+function render(){const i=idx(t);show(i);bar.style.width=(100*t/total)+'%';document.getElementById('time').textContent=fmt(t)+' / '+fmt(total)}
+function tick(now){if(!playing)return;if(last!==null)t+=(now-last)/1000;last=now;if(t>=total){t=total-0.001;playing=false;btn.textContent='▶ Play';render();return}render();requestAnimationFrame(tick)}
+const btn=document.getElementById('play');
+function toggle(){playing=!playing;btn.textContent=playing?'❚❚ Pause':'▶ Play';if(playing){if(t>=total-0.01)t=0;last=null;cur=-1;render();requestAnimationFrame(tick)}else if('speechSynthesis' in window)speechSynthesis.cancel()}
+function jump(i){i=Math.max(0,Math.min(B.length-1,i));t=B.slice(0,i).reduce((s,b)=>s+b.dur,0);cur=-1;last=null;render()}
+btn.onclick=toggle;document.getElementById('prev').onclick=()=>jump(cur-1);document.getElementById('next').onclick=()=>jump(cur+1);
+strip.forEach((e,k)=>e.onclick=()=>jump(k));
+document.getElementById('subs').onchange=e=>sub.classList.toggle('show',e.target.checked);
+document.getElementById('voice').onchange=e=>{voice=e.target.checked;if(!voice&&'speechSynthesis' in window)speechSynthesis.cancel()};
+document.addEventListener('keydown',e=>{if(e.code==='Space'){e.preventDefault();toggle()}if(e.key==='ArrowRight')jump(cur+1);if(e.key==='ArrowLeft')jump(cur-1);if(e.key==='Home')jump(0)});
+sub.classList.add('show');render();
+const h=decodeURIComponent(location.hash.slice(1));const hi=B.findIndex(b=>b.id===h);if(hi>=0)jump(hi);
+</script>
+</body></html>

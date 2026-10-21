@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Start early or save more? - animatic</title>
+<style>:root{--bg:#0f1720;--ink:#f3efe6;--accent:#f5b041;--muted:#7b8a99;--ar:1.7778;--arc:16/9}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#000;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+#wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%;gap:12px;padding:12px}
+#stage{container-type:inline-size;position:relative;width:min(96vw,calc((100vh - 190px)*var(--ar)));aspect-ratio:var(--arc);background:var(--bg);overflow:hidden;border-radius:6px}
+.beat{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;padding:6%;text-align:center}
+.beat.on{display:flex}
+.screen{font-size:clamp(20px,6.2cqw,96px);font-weight:800;line-height:1.1;letter-spacing:-.01em}
+.screen em{font-style:normal;color:var(--accent)}
+.pic{margin-top:3cqw;font-size:clamp(11px,1.7cqw,22px);color:var(--muted);max-width:80%;border:1px dashed var(--muted);padding:.6em 1em;border-radius:6px}
+.kind{position:absolute;top:3%;left:3%;font-size:clamp(9px,1.2cqw,14px);color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+.art{width:100%;display:flex;align-items:center;justify-content:center}
+.art svg{max-width:100%;max-height:34cqw}
+#sub{position:absolute;left:5%;right:5%;bottom:4%;font-size:clamp(11px,2cqw,26px);line-height:1.35;color:var(--ink);background:rgba(0,0,0,.55);padding:.3em .6em;border-radius:4px;display:none}
+#sub.show{display:block}
+#bar{position:absolute;left:0;bottom:0;height:4px;background:var(--accent);width:0}
+.m-rise.go>*{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+.m-slide.go>*{animation:slide .6s cubic-bezier(.2,.8,.2,1) both}
+.m-zoom.go>*{animation:zoom .8s cubic-bezier(.2,.8,.2,1) both}
+.m-swap.go>*{animation:swap .5s ease-out both}
+.m-build.go>*{animation:rise .6s cubic-bezier(.2,.8,.2,1) both}
+.m-build.go>*:nth-child(2){animation-delay:.35s}.m-build.go>*:nth-child(3){animation-delay:.7s}.m-build.go>*:nth-child(4){animation-delay:1.05s}
+@keyframes rise{from{opacity:0;transform:translateY(4cqw)}to{opacity:1;transform:none}}
+@keyframes slide{from{opacity:0;transform:translateX(12cqw)}to{opacity:1;transform:none}}
+@keyframes zoom{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
+@keyframes swap{from{opacity:0;filter:blur(8px)}to{opacity:1;filter:none}}
+#ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center;color:#ccc;font-size:14px}
+#ctl button{background:#222;color:#eee;border:1px solid #444;border-radius:4px;padding:6px 12px;cursor:pointer;font:inherit}
+#ctl label{display:flex;gap:4px;align-items:center}
+#strip{display:flex;gap:3px;width:min(96vw,1200px)}
+#strip div{flex:var(--d);height:22px;background:#2a2f36;border-radius:2px;cursor:pointer;font-size:10px;color:#9aa;display:flex;align-items:center;justify-content:center;overflow:hidden;white-space:nowrap}
+#strip div.on{background:var(--accent);color:#000}
+#time{font-variant-numeric:tabular-nums;min-width:110px;text-align:center}
+</style></head>
+<body><div id="wrap">
+<div id="stage"><section class="beat m-rise"><span class="kind">b01 · snag</span><div class="screen">Mia  ·  Leo</div><div class="pic">Two simple figures side by side, identical name cards</div></section>
+<section class="beat m-build"><span class="kind">b02 · snag</span><div class="screen">Mia: 25 → 35</div><div class="pic">Mia&#x27;s card grows a short bar labelled 10 years</div></section>
+<section class="beat m-build"><span class="kind">b03 · snag</span><div class="screen">Leo: 35 → 65</div><div class="pic">Leo&#x27;s card grows a bar three times longer, labelled 30 years</div></section>
+<section class="beat m-zoom"><span class="kind">b04 · snag</span><div class="screen">$24k  vs  $72k</div><div class="pic">Two coin stacks, Leo&#x27;s towering; a question mark lands between them</div></section>
+<section class="beat m-build"><span class="kind">b05 · mechanism</span><div class="screen">growth on <em>growth</em></div><div class="pic">A small square splits into a slightly bigger square, which splits again</div></section>
+<section class="beat m-build"><span class="kind">b06 · mechanism</span><div class="art"><svg viewBox='0 0 400 220' xmlns='http://www.w3.org/2000/svg'><path d='M20 200 C150 195 260 160 380 30' fill='none' stroke='#f5b041' stroke-width='6'/><g fill='#f3efe6' font-size='16' font-family='sans-serif'><circle cx='140' cy='190' r='6'/><text x='122' y='176'>×2</text><circle cx='260' cy='150' r='6'/><text x='242' y='136'>×4</text><circle cx='360' cy='60' r='6'/><text x='334' y='48'>×8</text></g></svg></div><div class="screen">7% ≈ ×2 / 10 yrs</div></section>
+<section class="beat m-build"><span class="kind">b07 · mechanism</span><div class="screen">+2 doublings</div><div class="pic">Mia&#x27;s small stack doubles twice more on a timeline while Leo&#x27;s is still being filled</div></section>
+<section class="beat m-swap"><span class="kind">b08 · proof</span><div class="screen">Mia ≈ $281k</div><div class="pic">Mia&#x27;s stack rises past the line where Leo&#x27;s will stop</div></section>
+<section class="beat m-swap"><span class="kind">b08b · proof</span><div class="screen">Leo ≈ $244k</div><div class="pic">Leo&#x27;s stack stops just short of Mia&#x27;s</div></section>
+<section class="beat m-zoom"><span class="kind">b09 · payoff</span><div class="screen"><em>Time</em> beat money</div><div class="pic">Bold line of type, alone on screen</div></section>
+<section class="beat m-slide"><span class="kind">b10 · next</span><div class="screen">Turn on auto-save today</div><div class="pic">A toggle in a banking app slides to ON</div></section><div id="sub"></div><div id="bar"></div></div>
+<div id="strip"><div style="--d:3.0" title="b01 0:00.0">b01</div><div style="--d:5.6" title="b02 0:03.0">b02</div><div style="--d:6.5" title="b03 0:08.6">b03</div><div style="--d:6.7" title="b04 0:15.1">b04</div><div style="--d:6.1" title="b05 0:21.8">b05</div><div style="--d:5.2" title="b06 0:27.9">b06</div><div style="--d:6.5" title="b07 0:33.1">b07</div><div style="--d:6.9" title="b08 0:39.6">b08</div><div style="--d:6.8" title="b08b 0:46.5">b08b</div><div style="--d:4.3" title="b09 0:53.3">b09</div><div style="--d:6.7" title="b10 0:57.6">b10</div></div>
+<div id="ctl"><button id="prev">◀</button><button id="play">▶ Play</button><button id="next">▶|</button>
+<span id="time"></span><label><input type="checkbox" id="subs" checked> subtitles</label>
+<label><input type="checkbox" id="voice"> scratch voice</label></div>
+</div>
+<script>window.BEATS=[{"id": "b01", "dur": 3.0, "vo": "Two friends. Same job, same salary."}, {"id": "b02", "dur": 5.6, "vo": "Mia saves two hundred a month from twenty-five, then stops at thirty-five."}, {"id": "b03", "dur": 6.5, "vo": "Leo waits, then saves the same two hundred a month from thirty-five to sixty-five."}, {"id": "b04", "dur": 6.7, "vo": "Leo puts in three times more money. So who ends up with more?"}, {"id": "b05", "dur": 6.1, "vo": "Growth is paid on the money you already have, including last year's growth."}, {"id": "b06", "dur": 5.2, "vo": "At seven percent a year, money roughly doubles every ten years."}, {"id": "b07", "dur": 6.5, "vo": "Mia's dollars get about twenty more years to grow. That is two extra doublings."}, {"id": "b08", "dur": 6.9, "vo": "At sixty-five, assuming seven percent a year, Mia has about two hundred and eighty thousand."}, {"id": "b08b", "dur": 6.8, "vo": "Leo, with three times the deposits, has about two hundred and forty-four thousand."}, {"id": "b09", "dur": 4.3, "vo": "The years did more work than the extra deposits."}, {"id": "b10", "dur": 6.7, "vo": "So today, switch on automatic saving, even if it is small."}];window.LANG="en";window.RATE=1.00;
+const B=window.BEATS, total=B.reduce((s,b)=>s+b.dur,0);
+let t=0, playing=false, last=null, cur=-1, voice=false;
+const st=document.getElementById('stage'), sub=document.getElementById('sub'), bar=document.getElementById('bar');
+const els=[...document.querySelectorAll('.beat')], strip=[...document.querySelectorAll('#strip div')];
+function fmt(s){const m=Math.floor(s/60);return m+':'+(s%60).toFixed(1).padStart(4,'0')}
+function idx(at){let a=0;for(let i=0;i<B.length;i++){a+=B[i].dur;if(at<a)return i}return B.length-1}
+function show(i){if(i===cur)return;cur=i;els.forEach((e,k)=>{e.classList.toggle('on',k===i);e.classList.remove('go')});
+ strip.forEach((e,k)=>e.classList.toggle('on',k===i));void els[i].offsetWidth;els[i].classList.add('go');
+ sub.textContent=B[i].vo||'';if(voice&&playing)speak(B[i].vo)}
+function speak(txt){if(!('speechSynthesis' in window)||!txt)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt);u.lang=window.LANG==='zh-CN'?'zh-CN':'en-US';u.rate=window.RATE;speechSynthesis.speak(u)}
+function render(){const i=idx(t);show(i);bar.style.width=(100*t/total)+'%';document.getElementById('time').textContent=fmt(t)+' / '+fmt(total)}
+function tick(now){if(!playing)return;if(last!==null)t+=(now-last)/1000;last=now;if(t>=total){t=total-0.001;playing=false;btn.textContent='▶ Play';render();return}render();requestAnimationFrame(tick)}
+const btn=document.getElementById('play');
+function toggle(){playing=!playing;btn.textContent=playing?'❚❚ Pause':'▶ Play';if(playing){if(t>=total-0.01)t=0;last=null;cur=-1;render();requestAnimationFrame(tick)}else if('speechSynthesis' in window)speechSynthesis.cancel()}
+function jump(i){i=Math.max(0,Math.min(B.length-1,i));t=B.slice(0,i).reduce((s,b)=>s+b.dur,0);cur=-1;last=null;render()}
+btn.onclick=toggle;document.getElementById('prev').onclick=()=>jump(cur-1);document.getElementById('next').onclick=()=>jump(cur+1);
+strip.forEach((e,k)=>e.onclick=()=>jump(k));
+document.getElementById('subs').onchange=e=>sub.classList.toggle('show',e.target.checked);
+document.getElementById('voice').onchange=e=>{voice=e.target.checked;if(!voice&&'speechSynthesis' in window)speechSynthesis.cancel()};
+document.addEventListener('keydown',e=>{if(e.code==='Space'){e.preventDefault();toggle()}if(e.key==='ArrowRight')jump(cur+1);if(e.key==='ArrowLeft')jump(cur-1);if(e.key==='Home')jump(0)});
+sub.classList.add('show');render();
+const h=decodeURIComponent(location.hash.slice(1));const hi=B.findIndex(b=>b.id===h);if(hi>=0)jump(hi);
+</script>
+</body></html>
